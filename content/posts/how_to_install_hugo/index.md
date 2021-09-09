@@ -125,30 +125,86 @@ categories: ["etc"]
 
 ## 번외. LoveIt 테마의 이쁜 컴포넌트들
 
-{{< admonition>}}
-이것은 노트입니다.
+{{< admonition >}}
+A **note** banner
 {{< /admonition >}}
 
-{{< admonition  tip>}}
-이것은 팁입니다.
+{{< admonition abstract >}}
+An **abstract** banner
+{{< /admonition >}}
+
+{{< admonition info >}}
+A **info** banner
+{{< /admonition >}}
+
+{{< admonition tip >}}
+A **tip** banner
+{{< /admonition >}}
+
+{{< admonition success >}}
+A **success** banner
+{{< /admonition >}}
+
+{{< admonition question >}}
+A **question** banner
+{{< /admonition >}}
+
+{{< admonition warning >}}
+A **warning** banner
+{{< /admonition >}}
+
+{{< admonition failure >}}
+A **failure** banner
+{{< /admonition >}}
+
+{{< admonition danger >}}
+A **danger** banner
+{{< /admonition >}}
+
+{{< admonition bug >}}
+A **bug** banner
+{{< /admonition >}}
+
+{{< admonition example >}}
+An **example** banner
+{{< /admonition >}}
+
+{{< admonition quote >}}
+A **quote** banner
 {{< /admonition >}}
 
 > 이것은 인용구 스타일입니다.
 
-**이것은 글자 강조입니다.**
+- **이것은 글자 강조입니다.**
 
-글자에 <span style="color:red">색깔을 넣어</span>봅니다.
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
+
+- 스타일을 넣어 봅니다.
+  가운데 **strong tag에 색상 넣기** 정렬!
+  {{< /style >}}
 
 ![Image preview](sunset.jpg "Image Preview. Beautiful Sunset")
 
-[font-awesome](https://fontawesome.com/)으로 아이콘을 사용 하려면 `config.toml`에 아래 코드를 적용해 주면 된다.
+- [font-awesome](https://fontawesome.com/)으로 아이콘을 사용 하려면 `config.toml`에 아래 코드를 적용해 주면 된다. :(far fa-user fa-fw): :(fab fa-apple):
 
-```toml
-  [params.page]
-    fontawesome = true
-```
+  ```toml
+    [params.page]
+      fontawesome = true
+  ```
 
-That is so funny! :(far fa-user fa-fw): :(fab fa-apple):
+- **그래프**도 됩니다
+
+  {{< mermaid >}}
+  pie
+  "react" : 386
+  "vue" : 85
+  "svelte" : 15
+  {{< /mermaid >}}
+
+- [TypeIt](https://typeitjs.com/)
+  {{< typeit >}}
+  간장공장공장장은 _간장공장장이고_ 된장공장공장장은 **된장공장장이다**...
+  {{< /typeit >}}
 
 ## References
 

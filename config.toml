@@ -17,13 +17,37 @@ theme = "LoveIt"
 
 [params.page]
   fontawesome = true
-
+  lightgallery = true
+  [params.page.toc]
+    enable = true
+  [params.page.code]
+    copy = true
+    maxShowLines = 10
+  [params.page.share]
+    enable = true
+  [params.page.comment]
+    enable = true
+    [params.page.comment.utterances]
+      enable = true
+      # owner/repo
+      repo = "ppsea/snkim.me"
+      issueTerm = "pathname"
+      label = ""
+      lightTheme = "github-light"
+      darkTheme = "github-dark"
+[params.page.seo]
+    # image URL
+    images = ["/images/snkim.png"]
+    # Publisher info
+    [params.page.seo.publisher]
+      name = "snkim's log"
+      logoUrl = "/images/avatar.png"
 [params.app]
   title = "log.snkim"
   # whether to omit favicon resource links
   noFavicon = false
   # modern SVG favicon to use in place of older style .png and .ico files
-  svgFavicon = ""
+  svgFavicon = "/images/favicon.jpg"
   # Android browser theme color
   themeColor = "#ffffff"
   # Safari mask icon color
@@ -32,21 +56,21 @@ theme = "LoveIt"
   tileColor = "#da532c"
 
 [params.search]
-    enable = true
-    # type of search engine ("lunr", "algolia")
-    type = "lunr"
-    # max index length of the chunked content
-    contentLength = 4000
-    # placeholder of the search bar
-    placeholder = "search"
-    # LoveIt NEW | 0.2.1 max number of results length
-    maxResultLength = 10
-    # LoveIt NEW | 0.2.3 snippet length of the result
-    snippetLength = 30
-    # LoveIt NEW | 0.2.1 HTML tag name of the highlight part in results
-    highlightTag = "em"
-    # LoveIt NEW | 0.2.4 whether to use the absolute URL based on the baseURL in search index
-    absoluteURL = false
+  enable = true
+  # type of search engine ("lunr", "algolia")
+  type = "lunr"
+  # max index length of the chunked content
+  contentLength = 4000
+  # placeholder of the search bar
+  placeholder = "search"
+  # LoveIt NEW | 0.2.1 max number of results length
+  maxResultLength = 10
+  # LoveIt NEW | 0.2.3 snippet length of the result
+  snippetLength = 30
+  # LoveIt NEW | 0.2.1 HTML tag name of the highlight part in results
+  highlightTag = "em"
+  # LoveIt NEW | 0.2.4 whether to use the absolute URL based on the baseURL in search index
+  absoluteURL = false
 
 # Header config
 [params.header]
@@ -84,6 +108,43 @@ theme = "LoveIt"
   icp = ""
   # license info (HTML format is supported)
   #license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+# Home page config
+[params.home]
+  # LoveIt NEW | 0.2.0 amount of RSS pages
+  rss = 10
+  # Home page profile
+  [params.home.profile]
+    enable = true
+    # Gravatar Email for preferred avatar in home page
+    gravatarEmail = ""
+    # URL of avatar shown in home page
+    avatarURL = "/images/avatar.png"
+    # LoveIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
+    title = "SNKIM's Blog"
+    # subtitle shown in home page
+    subtitle = "logger.info('snkim')"
+    # whether to use typeit animation for subtitle
+    typeit = true
+    # whether to show social links
+    social = true
+    # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
+    disclaimer = ""
+  # Home page posts
+  [params.home.posts]
+    enable = true
+    # special amount of posts in each home posts page
+    paginate = 6
+    # LoveIt DELETED | 0.2.0 replaced with hiddenFromHomePage in params.page
+    # default behavior when you don't set "hiddenFromHomePage" in front matter
+    defaultHiddenFromHomePage = false
+
+# Social config
+[params.social]
+  GitHub = "ppsea"
+  Email = "ksn569@gmail.com"
+  Linkedin = "henrysungnamkim"
+  RSS = true 
 
 # menu config
 [menu]
@@ -134,23 +195,9 @@ theme = "LoveIt"
   changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
-[params.seo]
-  # image URL
-  image = ""
-  # thumbnail URL
-  thumbnailUrl = ""
 
 # Author config
 [author]
   name = "snkim"
-  #email = "ksn569@gmail.com"
+  email = "ksn569@gmail.com"
   #link = "https://snkim.me"
-
-[params.page.comment.utterances]
-  enable = true
-  # owner/repo
-  repo = "ppsea/snkim.me"
-  issueTerm = "pathname"
-  #label = "snkim"
-  lightTheme = "github-light"
-  darkTheme = "github-dark"
