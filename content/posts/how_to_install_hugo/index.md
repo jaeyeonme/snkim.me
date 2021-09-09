@@ -1,10 +1,17 @@
 ---
 title: "Mac에서 Hugo로 블로그 개설하기"
+author: "snkim"
 description: "hugo를 사용해서 간단하게 블로그를 만들어본다."
 date: 2021-09-08T20:55:11+09:00
+lastMod: 2021-09-09T20:55:11+09:00
 draft: false
 tags: ["hugo", "blog", "tip"]
 categories: ["etc"]
+resources:
+  - name: "featured-image"
+    src: "hugo-logo-wide.svg"
+
+lightgallery: true
 ---
 
 ## 로컬에 휴고 사이트 설치 및 실행
@@ -113,7 +120,7 @@ categories: ["etc"]
 
 ## 배포하기
 
-### 빌드 파일 생성
+### 1. 정적 파일 생성
 
 아래 커맨드를 실행하면 public폴더에 정적파일이 생성된다.
 
@@ -121,7 +128,226 @@ categories: ["etc"]
   hugo
 ```
 
-[Netlify]()
+### 2. Netlify로 배포하기
+
+1. github에 저장하기
+
+- github에는 `public`을 제외한 폴더의 내용만 업로드한다.
+
+2. Netlify는 github에 upload한 repository만 접근을 허용한다.
+
+- [Netlify](https://www.netlify.com/)에서 아래처럼 설정하고 배포하면 된다.
+
+![Image preview](deploy.png "default deploy profile")
+
+## 기타 내가 페이지에 최종적으로 적용한 config.toml 설정 공유
+
+```toml
+baseURL = "https://snkim.me/"
+defaultContentLanguage = "en"
+languageCode = "ko"
+title = "log.snkim"
+
+# Change the default theme to be use when building the site with Hugo
+theme = "LoveIt"
+
+[params]
+  # LoveIt theme version
+  version = "0.2.X"
+  author = "snkim"
+  description = "snkim's log"
+  keywords = ["frontend", "react", "developer", "next.js"]
+  defaultTheme = "auto"
+  gitRepo = "https://github.com/ppsea"
+
+[params.page]
+  fontawesome = true
+  lightgallery = true
+  [params.page.toc]
+    enable = true
+  [params.page.code]
+    copy = true
+    maxShowLines = 10
+  [params.page.share]
+    enable = true
+  [params.page.comment]
+    enable = true
+    [params.page.comment.utterances]
+      enable = true
+      # owner/repo
+      repo = "ppsea/snkim.me"
+      issueTerm = "pathname"
+      label = ""
+      lightTheme = "github-light"
+      darkTheme = "github-dark"
+[params.page.seo]
+    # image URL
+    images = ["/images/snkim.png"]
+    # Publisher info
+    [params.page.seo.publisher]
+      name = "snkim's log"
+      logoUrl = "/images/avatar.png"
+[params.app]
+  title = "log.snkim"
+  # whether to omit favicon resource links
+  noFavicon = false
+  # modern SVG favicon to use in place of older style .png and .ico files
+  svgFavicon = "/images/avatar.png"
+  # Android browser theme color
+  themeColor = "#ffffff"
+  # Safari mask icon color
+  iconColor = "#5bbad5"
+  # Windows v8-10 tile color
+  tileColor = "#da532c"
+
+[params.search]
+  enable = true
+  # type of search engine ("lunr", "algolia")
+  type = "lunr"
+  # max index length of the chunked content
+  contentLength = 4000
+  # placeholder of the search bar
+  placeholder = "search"
+  # LoveIt NEW | 0.2.1 max number of results length
+  maxResultLength = 10
+  # LoveIt NEW | 0.2.3 snippet length of the result
+  snippetLength = 30
+  # LoveIt NEW | 0.2.1 HTML tag name of the highlight part in results
+  highlightTag = "em"
+  # LoveIt NEW | 0.2.4 whether to use the absolute URL based on the baseURL in search index
+  absoluteURL = false
+
+# Header config
+[params.header]
+  # desktop header mode ("fixed", "normal", "auto")
+  desktopMode = "fixed"
+  # mobile header mode ("fixed", "normal", "auto")
+  mobileMode = "auto"
+  # LoveIt NEW | 0.2.0 Header title config
+  [params.header.title]
+    # URL of the LOGO
+    logo = "/images/snkim.png"
+    # title name
+    # name = "log.snkim"
+    # you can add extra information before the name (HTML format is supported), such as icons
+    pre = ""
+    # you can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+    # LoveIt NEW | 0.2.5 whether to use typeit animation for title name
+    typeit = false
+
+# Footer config
+[params.footer]
+  enable = true
+  # LoveIt NEW | 0.2.0 Custom content (HTML format is supported)
+  custom = ''
+  # LoveIt NEW | 0.2.0 whether to show Hugo and theme info
+  hugo = true
+  # LoveIt NEW | 0.2.0 whether to show copyright info
+  copyright = true
+  # LoveIt NEW | 0.2.0 whether to show the author
+  author = true
+  # Site creation time
+  since = 2021
+  # ICP info only in China (HTML format is supported)
+  icp = ""
+  # license info (HTML format is supported)
+  #license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+# Home page config
+[params.home]
+  # LoveIt NEW | 0.2.0 amount of RSS pages
+  rss = 10
+  # Home page profile
+  [params.home.profile]
+    enable = true
+    # Gravatar Email for preferred avatar in home page
+    gravatarEmail = ""
+    # URL of avatar shown in home page
+    avatarURL = "/images/avatar.png"
+    # LoveIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
+    title = "SNKIM's Blog"
+    # subtitle shown in home page
+    subtitle = "logger.info('snkim')"
+    # whether to use typeit animation for subtitle
+    typeit = true
+    # whether to show social links
+    social = true
+    # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
+    disclaimer = ""
+  # Home page posts
+  [params.home.posts]
+    enable = true
+    # special amount of posts in each home posts page
+    paginate = 6
+    # LoveIt DELETED | 0.2.0 replaced with hiddenFromHomePage in params.page
+    # default behavior when you don't set "hiddenFromHomePage" in front matter
+    defaultHiddenFromHomePage = false
+
+# Social config
+[params.social]
+  GitHub = "ppsea"
+  Email = "ksn569@gmail.com"
+  Linkedin = "henrysungnamkim"
+  RSS = true
+
+# menu config
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    # you can add extra information before the name (HTML format is supported), such as icons
+    pre = ""
+    # you can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+    name = "Posts"
+    url = "/posts/"
+    # title will be shown when you hover on this menu link
+    title = ""
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+    weight = 2
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+    weight = 3
+
+#compatibility
+[params.compatibility]
+  # whether to use Polyfill.io to be compatible with older browsers
+  polyfill = false
+  # whether to use object-fit-images to be compatible with older browsers
+  objectFit = false
+
+# Markup related configuration in Hugo
+[markup]
+  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+  [markup.highlight]
+    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+    noClasses = false
+
+# Sitemap config
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+# Author config
+[author]
+  name = "snkim"
+  email = "ksn569@gmail.com"
+  #link = "https://snkim.me"
+
+```
 
 ## 번외. LoveIt 테마의 이쁜 컴포넌트들
 
