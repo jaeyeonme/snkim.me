@@ -1,7 +1,7 @@
 baseURL = "https://snkim.me/"
 defaultContentLanguage = "en"
 languageCode = "ko"
-title = "log(snkim)"
+title = "log.snkim"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"
@@ -19,7 +19,7 @@ theme = "LoveIt"
   fontawesome = true
 
 [params.app]
-  title = "log(snkim)"
+  title = "log.snkim"
   # whether to omit favicon resource links
   noFavicon = false
   # modern SVG favicon to use in place of older style .png and .ico files
@@ -57,9 +57,9 @@ theme = "LoveIt"
   # LoveIt NEW | 0.2.0 Header title config
   [params.header.title]
     # URL of the LOGO
-    logo = ""
+    logo = "/images/snkim.png"
     # title name
-    name = "log(snkim)"
+    # name = "log.snkim"
     # you can add extra information before the name (HTML format is supported), such as icons
     pre = ""
     # you can add extra information after the name (HTML format is supported), such as icons
@@ -147,10 +147,10 @@ theme = "LoveIt"
   #link = "https://snkim.me"
 
 [params.page.comment.utterances]
-  enable = false
+  enable = true
   # owner/repo
   repo = "ppsea/snkim.me"
   issueTerm = "pathname"
-  label = ""
+  #label = "snkim"
   lightTheme = "github-light"
   darkTheme = "github-dark"
